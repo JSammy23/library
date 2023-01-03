@@ -1,3 +1,9 @@
+:root {
+    --bg-color-500: #111827;
+    --bg-color-400: #1e2939;
+    --accent-color: #5eead4;
+}
+
 /* CSS Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -46,14 +52,14 @@ table {
 /* CSS Styles */
 
 body {
-    background-color: #475569
+    background-color: var(--bg-color-500);
 }
 
 header {
     display: flex;
     align-items: center;
     padding: 20px;
-    color: #5eead4;
+    color: var(--accent-color);
     gap: 10px;
 }
 
@@ -72,19 +78,119 @@ h1 {
 .card {
     width: 300px;
     height: 175px;
-    background-color: #cbd5e1;
+    background-color: var(--bg-color-400);
     border-radius: 25px;
-    border: 3px solid #5eead4;
-    
+    border: 3px solid var(--accent-color);
+    color: white;
 }
 
 .title {
     font-size: 2rem;
-    border-bottom: 2px solid #5eead4;
+    border-bottom: 2px solid var(--accent-color);
     text-align: center;
 }
 
 .author {
     font-size: 1.5rem;
     text-align: center;
+}
+
+#addBook {
+    position: fixed;
+    left: 90%;
+    top: 90%;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+#addBook:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.2);
+}
+
+#addBook:active {
+    color: #A3E635;
+}
+
+.newBookPopUp {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 3px dotted red; */
+    display: flex;
+    justify-content: center;
+}
+
+.formPopUp {
+    border: 3px solid var(--accent-color);
+    width: 550px;
+    height: 275px;
+    padding: 20px;
+    background-color: var(--bg-color-400);
+    border-radius: 25px;
+    /* display: none; */
+}
+
+.formContainer {
+   
+}
+
+label {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: right;
+    margin-right:15px;
+    float:left;
+    height: 20px;
+    width: 100px;
+}
+
+input {
+    height: 20px;
+    width: 300px;
+    border: 1px solid var(--accent-color);
+    background-color: #D4D4D4;
+    margin-top: 10px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.formGroup {
+    color: white;
+    padding-bottom: 20px;
+
+}
+
+.formHeader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#closeForm {
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#submitBook {
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 8px;
+    outline: none;
+    color: var(--bg-color-400);
+    border: none;
+    background-color: var(--accent-color);
+    cursor: pointer;
 }
