@@ -20,6 +20,11 @@
             <div class="card">
                 <h2 class="title">12 Rules for Life</h2>
                 <h3 class="author">Dr. Jordan Peterson</h3>
+                <p>245 Pages</p>
+                <div class="cardControls">
+                    <button class="rmvBtn">Remove</button>
+                    <button class="readBtn">Read</button>
+                </div>
             </div>
         </div>
     </div>
@@ -29,10 +34,10 @@
         </svg>
     </button>
     <div class="newBookPopUp">
-        <div class="formPopUp">
+        <div id="formPopUp">
             <form action="#" class="formContainer">
                 <div class="formHeader">
-                    <button id="closeForm" onclick="closeForm()">
+                    <button type="button" onclick="closeForm()">
                         <svg style="width:30px;height:30px" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
                         </svg>
@@ -60,5 +65,6 @@
             </form>
         </div>
     </div>
+    <script src="/script.js"></script>
 </body>
 </html>
