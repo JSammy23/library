@@ -1,8 +1,5 @@
 let myLibrary = []
 
-myLibrary.forEach(book => {
-    console.log(book)
-})
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -12,10 +9,47 @@ function Book(title, author, pages, read) {
 }
 
 const cardContainer = document.querySelector('.grid-container');
+const inputTitle = document.getElementById('title')
+const inputAuthor = document.getElementById('author')
+const inputPages = document.getElementById('pages')
+const inputRead = document.getElementById('read')
+const formElement = document.getElementById('bookForm')
+const errorMsg = document.querySelector('.messages')
+
+formElement.addEventListener('submit', (e) => {
+    let messages = []
+    e.preventDefault()
+    // if (inputTitle.value === '' || inputTitle === null) {
+    //     messages.push('Title is required')
+    // }
+    // if (messages.length > 0){
+    //     e.preventDefault()
+    //     errorMsg.innerText = messages.join(', ')
+    // }
+})
 
 function addBook() {
-    // To Do //
-    
+    newBook = new Book
+    newBook.title = inputTitle.value
+    newBook.author = inputAuthor.value
+    newBook.pages = inputPages.value
+    newBook.read = inputRead.value
+    myLibrary.push(newBook)
+    console.log("Book added to Library")
+    closeForm()
+    resetGrid()
+    updateCards()
+    formElement.reset()
+}
+
+function resetGrid() {
+    cardContainer.innerHTML = '';
+}
+
+function updateCards() {
+    for (let i = 0; i < myLibrary.length; i++){
+        addCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages)
+    }
 }
 
 function addCard(title, author, pages) {
