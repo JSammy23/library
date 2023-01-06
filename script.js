@@ -18,7 +18,7 @@ const formElement = document.getElementById('bookForm')
 const errorMsg = document.querySelector('.messages')
 const removeButton = document.querySelectorAll('.rmvBtn')
 
-// Event listener for remove button to delete bookl from Library array
+// Event listener for remove button to delete book from Library array
 document.addEventListener("click", function(e){
     const target = e.target.closest('.rmvBtn'); // Or any other selector.
     if(target){
@@ -33,6 +33,22 @@ document.addEventListener("click", function(e){
     resetGrid()
     updateCards()
   });
+
+  // Event listener for read button to update book object read property value
+  document.addEventListener('click', function(e){
+    const target = e.target.closest('.readBtn');
+    if(target){
+        const itemText = target.parentElement.parentElement.firstChild.textContent
+        const itemPos = myLibrary.findIndex(target => target.title == itemText)
+
+        console.log(itemText + ' ' + itemPos)
+        if (myLibrary[itemPos].read == false){
+            myLibrary[itemPos].read = true
+        } else {
+            myLibrary[itemPos].read = false
+        }
+    }
+  })
 
 
 removeButton.forEach(item => {
