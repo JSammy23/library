@@ -231,7 +231,7 @@ input {
     justify-content: flex-end;
 }
 
-#submitBook {
+.submitBook {
     font-size: 18px;
     padding: 5px;
     border-radius: 8px;
