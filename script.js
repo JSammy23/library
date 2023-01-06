@@ -1,11 +1,12 @@
 let myLibrary = []
 
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, id) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
+    this.id = id
 }
 
 const cardContainer = document.querySelector('.grid-container');
@@ -18,7 +19,7 @@ const errorMsg = document.querySelector('.messages')
 
 formElement.addEventListener('submit', (e) => {
     let messages = []
-    e.preventDefault()
+    // e.preventDefault()
     // if (inputTitle.value === '' || inputTitle === null) {
     //     messages.push('Title is required')
     // }
@@ -33,13 +34,22 @@ function addBook() {
     newBook.title = inputTitle.value
     newBook.author = inputAuthor.value
     newBook.pages = inputPages.value
-    newBook.read = inputRead.value
+    isRead()
+    newBook.id = myLibrary.length || 0
     myLibrary.push(newBook)
     console.log("Book added to Library")
     closeForm()
     resetGrid()
     updateCards()
     formElement.reset()
+}
+
+function isRead() {
+    if (document.getElementById('read').checked) {
+        newBook.read = true
+    } else {
+        newBook.read = false
+    }
 }
 
 function resetGrid() {
