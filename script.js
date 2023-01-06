@@ -44,23 +44,20 @@ document.addEventListener("click", function(e){
         console.log(itemText + ' ' + itemPos)
         if (myLibrary[itemPos].read == false){
             myLibrary[itemPos].read = true
+            target.classList.replace('unRead', 'read')
+            console.log('isRead set to true')
+            resetGrid()
+            updateCards()
         } else {
             myLibrary[itemPos].read = false
+            target.classList.replace('read', 'unRead')
+            console.log('isRead set to false')
+            resetGrid()
+            updateCards()
         }
     }
   })
 
-
-removeButton.forEach(item => {
-    item.addEventListener('click', () => {
-        const itemText = item.parentElement.parentElement.firstChild.textContent
-        const itemPos = myLibrary.findIndex(item => item.title == itemText) 
-
-        console.log(itemText + ' ' + itemPos);
-        console.log(array);
-        array.splice(itemPos, 1);
-    })
-})
 
 formElement.addEventListener('submit', (e) => {
     let messages = []
@@ -103,11 +100,11 @@ function resetGrid() {
 
 function updateCards() {
     for (let i = 0; i < myLibrary.length; i++){
-        addCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages)
+        addCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read)
     }
 }
 
-function addCard(title, author, pages) {
+function addCard(title, author, pages, read) {
     const newCard = document.createElement("div")
     const newTitle = document.createElement("h2")
     const newAuthor = document.createElement("h3")
@@ -133,6 +130,11 @@ function addCard(title, author, pages) {
     newPages.innerText = pages + " pages"
     rmvBtn.innerText = "Remove"
     readBtn.innerText = "Read"
+    if (read == true) {
+        readBtn.classList.add('read')
+    } else {
+        readBtn.classList.add('unRead')
+    }
 }
 
 

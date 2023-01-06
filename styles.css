@@ -123,8 +123,16 @@ h1 {
 }
 
 .readBtn {
-    background-color: #A3E635;
+    /* background-color: #A3E635; */
     border-bottom-right-radius: 22px;
+}
+
+.read {
+    background-color: #A3E635;
+}
+
+.unRead {
+    background-color: #FBBF24;
 }
 
 .title {
